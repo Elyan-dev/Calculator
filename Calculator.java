@@ -68,6 +68,7 @@ public class Calculator extends JFrame {
          * */
         operatorPanel.setPreferredSize(new Dimension(100, 100));
         operatorPanel.setLayout(new GridLayout(1, 4));
+        numberLabelPanel.setBackground(Color.YELLOW);
         for (int i=0; i<operators.length; i++){
             symbols[i] = new JButton(operators[i]);
             symbols[i].setFocusable(false);
@@ -77,34 +78,10 @@ public class Calculator extends JFrame {
             int finalI = i;
             symbols[i].addActionListener((e -> {
                 operator = String.valueOf(symbols[finalI].getText());
-
-                if (symbols[finalI].getText().equals(operators[0])){
-                    if (operator != null){
-                        a = numberLabel.getText();
-                        System.out.println(a);
-                        numberLabel.setText("0");
-                    }
-                }
-                if (symbols[finalI].getText().equals(operators[1])){
-                    if (operator != null){
-                        a = numberLabel.getText();
-                        System.out.println(a);
-                        numberLabel.setText("0");
-                    }
-                }
-                if (symbols[finalI].getText().equals(operators[2])){
-                    if (operator != null){
-                        a = numberLabel.getText();
-                        System.out.println(a);
-                        numberLabel.setText("0");
-                    }
-                }
-                if (symbols[finalI].getText().equals(operators[3])){
-                    if (operator != null){
-                        a = numberLabel.getText();
-                        System.out.println(a);
-                        numberLabel.setText("0");
-                    }
+                if (operator != null){
+                    if (a == null){a = numberLabel.getText();}
+                    System.out.println(a);
+                    numberLabel.setText("0");
                 }
 
                 System.out.println(operator);
